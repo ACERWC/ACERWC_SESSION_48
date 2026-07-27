@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Program of Work — 48th Ordinary Session of the ACERWC</title>
+<title>ACERWC 48th Ordinary Session — Program of Work</title>
 <style>
   :root {
     --maroon: #991d32;
-    --maroon-dark: #731626;
+    --maroon-dark: #6e1424;
     --green: #00754a;
-    --green-dark: #005838;
+    --green-dark: #00512f;
     --gold: #c9a85f;
-    --gold-dark: #977e47;
-    --tint-open: #e6f1ed;
-    --tint-closed: #f7edef;
-    --tint-parallel: #f9f5ec;
+    --gold-dark: #a3823d;
+    --tint-open: #e8f5ee;
+    --tint-closed: #f7e9ec;
+    --tint-parallel: #faf3e3;
     --ink: #2a2028;
     --muted: #6b5d63;
     --bg: #fbf9f7;
@@ -22,8 +22,18 @@
     --border: #e9e0e2;
   }
   * { box-sizing: border-box; }
-  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.5; }
-  header.top { background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%); color: #fff; padding: 28px 24px 22px; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.5;
+  }
+  header.top {
+    background: linear-gradient(135deg, var(--maroon) 0%, var(--maroon-dark) 100%);
+    color: #fff;
+    padding: 28px 24px 22px;
+  }
   .top-inner { max-width: 1100px; margin: 0 auto; }
   .logo-row { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-bottom: 18px; }
   .logo-row img { height: 52px; width: auto; display: block; }
@@ -33,7 +43,11 @@
   .chips { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
   .chip { background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.25); border-radius: 999px; padding: 6px 14px; font-size: 0.88rem; }
   nav.tabs { position: sticky; top: 0; z-index: 20; background: #fff; border-bottom: 2px solid var(--border); display: flex; overflow-x: auto; }
-  nav.tabs button { flex: 1 0 auto; min-width: 120px; padding: 14px 10px; border: none; background: transparent; font-size: 0.92rem; font-weight: 600; color: var(--muted); cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; }
+  nav.tabs button {
+    flex: 1 0 auto; min-width: 120px; padding: 14px 10px; border: none; background: transparent;
+    font-size: 0.92rem; font-weight: 600; color: var(--muted); cursor: pointer; border-bottom: 3px solid transparent;
+    white-space: nowrap;
+  }
   nav.tabs button.active { color: var(--maroon); border-bottom-color: var(--maroon); }
   main { max-width: 1100px; margin: 0 auto; padding: 28px 20px 60px; }
   section.panel { display: none; }
@@ -41,12 +55,18 @@
   h2.panel-title { font-size: 1.3rem; margin: 0 0 6px; color: var(--maroon-dark); }
   p.panel-intro { color: var(--muted); margin: 0 0 22px; max-width: 760px; }
   .day-switch { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
-  .day-switch button { padding: 9px 16px; border-radius: 10px; border: 1.5px solid var(--border); background: #fff; font-weight: 600; font-size: 0.88rem; cursor: pointer; color: var(--ink); }
+  .day-switch button {
+    padding: 9px 16px; border-radius: 10px; border: 1.5px solid var(--border); background: #fff;
+    font-weight: 600; font-size: 0.88rem; cursor: pointer; color: var(--ink);
+  }
   .day-switch button.active { background: var(--maroon); border-color: var(--maroon); color: #fff; }
   .rest-note { font-size: 0.82rem; color: var(--muted); margin: -12px 0 20px; font-style: italic; }
   .day-panel { display: none; }
   .day-panel.active { display: block; }
-  .block-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; margin-bottom: 12px; display: flex; gap: 16px; align-items: flex-start; }
+  .block-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 16px 18px; margin-bottom: 12px; display: flex; gap: 16px; align-items: flex-start;
+  }
   .block-time { flex: 0 0 120px; font-weight: 700; color: var(--maroon-dark); font-size: 0.92rem; }
   .block-body { flex: 1; min-width: 0; }
   .block-track { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--gold-dark); margin-bottom: 4px; }
@@ -106,7 +126,7 @@
     <h2 class="panel-title">Program of Work</h2>
     <p class="panel-intro">48th Ordinary Session of the ACERWC, Tuesday 13 – Tuesday 20 October 2026. Sunday 18 October has no scheduled session.</p>
     <div class="day-switch" id="day-switch"></div>
-    <p class="rest-note">Sunday 18 October is a rest day between the Saturday and Monday sessions.</p>
+    <p class="rest-note">Note: Sunday 18 October is a rest day between the Saturday and Monday sessions.</p>
     <div id="day-panels"></div>
   </section>
 
@@ -114,7 +134,9 @@
     <h2 class="panel-title">Venue &amp; Map</h2>
     <p class="panel-intro">All plenary sessions take place at the Manthabiseng Convention Centre in Maseru.</p>
     <div class="card">
-      <div class="map-embed"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3271858.035278276!2d25.122233103541575!3d-27.75486761382769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e8dcb261831cde7%3A0x5bf2f268a028cde3!2s%27Manthabiseng%20Convention%20Centre!5e1!3m2!1sen!2sls!4v1784015533633!5m2!1sen!2sls" loading="lazy"></iframe></div>
+      <div class="map-embed">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3271858.035278276!2d25.122233103541575!3d-27.75486761382769!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e8dcb261831cde7%3A0x5bf2f268a028cde3!2s%27Manthabiseng%20Convention%20Centre!5e1!3m2!1sen!2sls!4v1784015533633!5m2!1sen!2sls" loading="lazy"></iframe>
+      </div>
       <p><strong>Manthabiseng Convention Centre</strong><br>Maseru, Kingdom of Lesotho</p>
       <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Manthabiseng%20Convention%20Centre%20Maseru" target="_blank" rel="noopener">Get Directions</a>
       <div class="note">Note: the 45th Session (April 2025) was held at the Avani Hotel, Maseru. Confirm with participants that the venue is Manthabiseng Convention Centre for this session.</div>
@@ -125,8 +147,19 @@
     <h2 class="panel-title">Speakers &amp; Officials</h2>
     <p class="panel-intro">Names below are drawn from the draft program of work. Roles rotate — please reconfirm closer to the date.</p>
     <div class="card">
-      <h3 style="margin-top:0;">Opening Ceremony</h3>
-      <ul class="link-list"><li><span class="speaker-name">Hon. Sabrina Gahar</span> — Chairperson of the ACERWC</li><li><span class="speaker-name">Chair of AGA-APSA</span></li><li><span class="speaker-name">H.E. Commissioner of HHS</span></li><li><span class="speaker-name">Chair of the PRC Sub-Committee on Human Rights, Governance and Democracy</span></li><li><span class="speaker-name">Representative of the Kingdom of Lesotho</span></li><li><span class="speaker-name">UN Resident Coordinator - Lesotho</span></li><li><span class="speaker-name">Representative of UNICEF</span></li><li><span class="speaker-name">President of NANHRI</span></li><li><span class="speaker-name">Children's Representatives</span> — remarks and performance</li><li><span class="speaker-name">The CSO Forum</span> — recommendations</li></ul>
+      <h3 style="margin-top:0;">Opening Ceremony — Tuesday 13 October</h3>
+      <ul class="link-list">
+        <li><span class="speaker-name">Hon. Sabrina Gahar</span> — Chairperson of the ACERWC</li>
+        <li><span class="speaker-name">Chair of AGA-APSA</span></li>
+        <li><span class="speaker-name">H.E. Commissioner of HHS</span></li>
+        <li><span class="speaker-name">Chair of the PRC Sub-Committee</span> on Human Rights, Governance and Democracy</li>
+        <li><span class="speaker-name">Representative of the Kingdom of Lesotho</span></li>
+        <li><span class="speaker-name">UN Resident Coordinator</span> — Lesotho</li>
+        <li><span class="speaker-name">Representative of UNICEF</span></li>
+        <li><span class="speaker-name">President of NANHRI</span></li>
+        <li><span class="speaker-name">Children's Representatives</span> — remarks and performance</li>
+        <li><span class="speaker-name">The CSO Forum</span> — recommendations</li>
+      </ul>
       <div class="note">The Chairperson (Hon. Sabrina Gahar) reflects the Bureau in office for November 2025 – November 2027. All other named roles should be reconfirmed as speakers are assigned closer to the Session.</div>
     </div>
   </section>
@@ -134,21 +167,32 @@
   <section class="panel" id="panel-documents">
     <h2 class="panel-title">Documents</h2>
     <p class="panel-intro">Session-specific documents (provisional agenda, concept notes, state party reports) will be published closer to the date.</p>
-    <div class="card"><p class="placeholder">Session-specific files for the 48th Ordinary Session weren't yet published on acerwc.africa at the time this program was built — add direct links or upload files above once released.</p></div>
+    <div class="card">
+      <p class="placeholder">Session-specific files for the 48th Ordinary Session weren't yet published on acerwc.africa at the time this program was built — swap in direct links once released.</p>
+    </div>
   </section>
 
   <section class="panel" id="panel-practical">
     <h2 class="panel-title">Practical Information</h2>
-    <p class="panel-intro">Fill in the details below once logistics are confirmed.</p>
-    <div class="card"><p><strong>WiFi:</strong> <span class="placeholder">to be confirmed</span></p><p><strong>Accommodation:</strong> <span class="placeholder">to be confirmed</span></p><p><strong>Registration:</strong> <span class="placeholder">to be confirmed</span></p><p><strong>Dress code:</strong> <span class="placeholder">to be confirmed</span></p></div>
+    <p class="panel-intro">Fill in the placeholders below once logistics are confirmed.</p>
+    <div class="card">
+      <p><strong>WiFi:</strong> <span class="placeholder">to be confirmed</span></p>
+      <p><strong>Accommodation:</strong> <span class="placeholder">to be confirmed</span></p>
+      <p><strong>Registration:</strong> <span class="placeholder">to be confirmed</span></p>
+      <p><strong>Dress code:</strong> <span class="placeholder">to be confirmed</span></p>
+    </div>
   </section>
 
   <section class="panel" id="panel-online">
     <h2 class="panel-title">ACERWC Online</h2>
     <p class="panel-intro">Official channels of the Committee.</p>
     <div class="card">
-      <ul class="link-list"><li><a href="https://www.acerwc.africa" target="_blank" rel="noopener">acerwc.africa — official website</a></li><li><a href="https://twitter.com/acerwc" target="_blank" rel="noopener">@acerwc on X / Twitter</a></li><li><a href="https://www.facebook.com/ACERWC" target="_blank" rel="noopener">ACERWC on Facebook</a></li></ul>
-      <div class="note">Verify these handles/links are current before publishing.</div>
+      <ul class="link-list">
+        <li><a href="https://www.acerwc.africa" target="_blank" rel="noopener">acerwc.africa — official website</a></li>
+        <li><a href="https://twitter.com/acerwc" target="_blank" rel="noopener">@acerwc on X / Twitter</a></li>
+        <li><a href="https://www.facebook.com/ACERWC" target="_blank" rel="noopener">ACERWC on Facebook</a></li>
+      </ul>
+      <div class="note">Verify these handles/links are current before publishing — carried over from the prior version of this page.</div>
     </div>
   </section>
 
@@ -161,7 +205,9 @@
 </footer>
 
 <script>
-  const AGENDA = [{"id":"tue13","weekday":"Tuesday","date":"13 October","blocks":[{"time":"08:30–10:00","access":"closed","title":"Procedural Matters","items":["Adoption of the Agenda and the Program of Work","Organization of work","Assignment of Committee Members for consideration of applications for Observer and Affiliate Status","Assignment of Second Rapporteurs"]},{"time":"10:00–12:30","access":"open","title":"Official Opening of the 48th Session of the ACERWC","items":["AU and the Kingdom of Lesotho Anthem","Children's Representatives","The CSO Forum","President of NANHRI","UN Resident Coordinator – Lesotho","Representative of UNICEF","Performance and poem by children","Chair of AGA-APSA","Hon. Sabrina Gahar, Chairperson of the ACERWC","H.E. Commissioner of HHS","Chair of the PRC Sub-Committee on Human Rights, Governance and Democracy","Representative of the Kingdom of Lesotho"]},{"time":"12:30–14:00","access":"open","title":"Family Photo and Lunch","items":[]},{"time":"14:00–17:00","access":"open","title":"Remarks by Member States, Partners & CSOs","track":"Plenary — Track A","items":["Remarks by Member States (5 minutes each)","Remarks by NHRIs with Affiliate Status (5 minutes each)","Statements by UN Agencies and International Partner Organizations (5 minutes each)","Statements on the recommendations of the CSO Forum (8 minutes)","Briefings by Organizations with Observer Status (3 minutes each)","Presentation on DAC 2026 commemoration"]},{"time":"14:00–17:00","access":"closed-parallel","track":"Parallel — Track B","title":"Bilateral Engagement with a Country Rapporteur (TBC)","items":[]}]},{"id":"wed14","weekday":"Wednesday","date":"14 October","blocks":[{"time":"09:00–17:00","access":"open","title":"Day of General Discussion","items":["Theme: “Violence Against Children and Harmful Practices: Navigating the Digital Frontier”"]}]},{"id":"thu15","weekday":"Thursday","date":"15 October","blocks":[{"time":"09:00–10:00","access":"open","title":"Presentation on the Draft General Comment on Article 13 on the Rights of Children with Disabilities","items":[]},{"time":"10:00–11:00","access":"open","title":"Presentation on the Study on Recruitment of Children by Armed Forces and Armed Groups in Africa","items":[]},{"time":"11:00–13:00","access":"open","title":"Partners request","items":[]},{"time":"13:00–14:00","access":"open","title":"Lunch Break","items":[]},{"time":"14:00–18:00","access":"open","title":"State Party Report Consideration","items":["The First Periodic Report of the Arab Republic of Egypt"]}]},{"id":"fri16","weekday":"Friday","date":"16 October","blocks":[{"time":"09:00–13:00","access":"open","title":"State Party Report Consideration","items":["The Initial Report of the Republic of The Gambia"]},{"time":"13:00–14:00","access":"open","title":"Lunch Break","items":[]},{"time":"14:00–18:00","access":"open","title":"State Party Report Consideration","items":["Initial Report of the State of Libya"]}]},{"id":"sat17","weekday":"Saturday","date":"17 October","blocks":[{"time":"09:00–13:00","access":"open","title":"State Party Report Consideration","items":["The First Periodic Report of the Islamic Republic of Mauritania"]},{"time":"13:00–14:00","access":"closed","title":"Lunch Break","items":[]},{"time":"14:00–16:15","access":"closed","title":"Consideration of Complementary Report","items":["First Periodic Report of the Republic of Sierra Leone"]},{"time":"16:15–18:00","access":"closed","title":"(TBC) Presentation of the NHRI Report","items":["On the First Periodic Report of Sierra Leone"]}]},{"id":"mon19","weekday":"Monday","date":"19 October","blocks":[{"time":"09:00–11:15","access":"closed","title":"Consideration of Complementary Report","items":["First Periodic Report of the Republic of Côte d'Ivoire"]},{"time":"11:30–13:00","access":"closed","title":"(TBC) Presentation of the NHRI Report","items":["On the Second Periodic Report of Côte d'Ivoire"]},{"time":"13:00–14:00","access":"closed","title":"Lunch Break","items":[]},{"time":"14:00–16:15","access":"closed","title":"Consideration of Complementary Report","items":["Initial Report of the Republic of Cabo Verde"]},{"time":"16:30–18:00","access":"closed","title":"(TBC) Presentation of the NHRI Report","items":["On the Initial Report of the Republic of Cabo Verde"]}]},{"id":"tue20","weekday":"Tuesday","date":"20 October","blocks":[{"time":"09:00–10:00","access":"closed","title":"Presentation on Budget and Activities 2026–2028","items":[]},{"time":"10:00–13:00","access":"closed","title":"Consideration of Pending Communications","items":["Communication No. 0029/Com/001/2026 submitted by the Institute for Human Rights and Development in Africa and others against the Republic of Zambia","Communication No. 0028/Com/003/2025 submitted by MN, Women's Probono Initiative (WPI), and the Center for Reproductive Rights (CRR) vs. the Republic of Uganda","Communication No. 0019/Com/001/2022 submitted by Institute for Human Rights and Development in Africa and Mr. Solomon Joojo Cobbinah (on behalf of schoolgirls living in villages along the River Offin in the Ashanti Region of Ghana) against the Republic of Ghana"]},{"time":"13:00–14:00","access":"closed","title":"Lunch Break","items":[]},{"time":"14:00–17:00","access":"closed","title":"Adoption of Decisions","items":["General Comment on Article 28 on Drug Abuse","Agenda 2040 Implementation Study","Decisions on Affiliate and Observer Status","Decisions on Partners' Request","Selection of DAC Theme 2027","Consideration of State Party Reports without CSO Reports","Adoption of the outcome document of the DGD","AOB"]},{"time":"17:00–17:30","access":"open","title":"Closing","items":[]}]}];
+  const AGENDA = [{"id": "tue13", "weekday": "Tuesday", "date": "13 October", "blocks": [{"time": "08:30–10:00", "access": "closed", "title": "Procedural Matters", "items": ["Adoption of the Agenda and the Program of Work", "Organization of work", "Assignment of Committee Members for consideration of applications for Observer and Affiliate Status", "Assignment of Second Rapporteurs"]}, {"time": "10:00–12:30", "access": "open", "title": "Official Opening of the 48th Session of the ACERWC", "items": ["AU and the Kingdom of Lesotho Anthem", "Children's Representatives", "The CSO Forum", "President of NANHRI", "UN Resident Coordinator – Lesotho", "Representative of UNICEF", "Performance and poem by children", "Chair of AGA-APSA", "Hon. Sabrina Gahar, Chairperson of the ACERWC", "H.E. Commissioner of HHS", "Chair of the PRC Sub-Committee on Human Rights, Governance and Democracy", "Representative of the Kingdom of Lesotho"]}, {"time": "12:30–14:00", "access": "open", "title": "Family Photo and Lunch", "items": []}, {"time": "14:00–17:00", "access": "open", "title": "Remarks by Member States, Partners & CSOs", "track": "Plenary — Track A", "items": ["Remarks by Member States (5 minutes each)", "Remarks by NHRIs with Affiliate Status (5 minutes each)", "Statements by UN Agencies and International Partner Organizations (5 minutes each)", "Statements on the recommendations of the CSO Forum (8 minutes)", "Briefings by Organizations with Observer Status (3 minutes each)", "Presentation on DAC 2026 commemoration"]}, {"time": "14:00–17:00", "access": "closed-parallel", "track": "Parallel — Track B", "title": "Bilateral Engagement with a Country Rapporteur (TBC)", "items": []}]}, {"id": "wed14", "weekday": "Wednesday", "date": "14 October", "blocks": [{"time": "09:00–17:00", "access": "open", "title": "Day of General Discussion", "items": ["Theme: “Violence Against Children and Harmful Practices: Navigating the Digital Frontier”"]}]}, {"id": "thu15", "weekday": "Thursday", "date": "15 October", "blocks": [{"time": "09:00–10:00", "access": "open", "title": "Presentation on the Draft General Comment on Article 13 on the Rights of Children with Disabilities", "items": []}, {"time": "10:00–11:00", "access": "open", "title": "Presentation on the Study on Recruitment of Children by Armed Forces and Armed Groups in Africa", "items": []}, {"time": "11:00–13:00", "access": "open", "title": "Partners request", "items": []}, {"time": "13:00–14:00", "access": "open", "title": "Lunch Break", "items": []}, {"time": "14:00–18:00", "access": "open", "title": "State Party Report Consideration", "items": ["The First Periodic Report of the Arab Republic of Egypt"]}]}, {"id": "fri16", "weekday": "Friday", "date": "16 October", "blocks": [{"time": "09:00–13:00", "access": "open", "title": "State Party Report Consideration", "items": ["The Initial Report of the Republic of The Gambia"]}, {"time": "13:00–14:00", "access": "open", "title": "Lunch Break", "items": []}, {"time": "14:00–18:00", "access": "open", "title": "State Party Report Consideration", "items": ["Initial Report of the State of Libya"]}]}, {"id": "sat17", "weekday": "Saturday", "date": "17 October", "blocks": [{"time": "09:00–13:00", "access": "open", "title": "State Party Report Consideration", "items": ["The First Periodic Report of the Islamic Republic of Mauritania"]}, {"time": "13:00–14:00", "access": "closed", "title": "Lunch Break", "items": []}, {"time": "14:00–16:15", "access": "closed", "title": "Consideration of Complementary Report", "items": ["First Periodic Report of the Republic of Sierra Leone"]}, {"time": "16:15–18:00", "access": "closed", "title": "(TBC) Presentation of the NHRI Report", "items": ["On the First Periodic Report of Sierra Leone"]}]}, {"id": "mon19", "weekday": "Monday", "date": "19 October", "blocks": [{"time": "09:00–11:15", "access": "closed", "title": "Consideration of Complementary Report", "items": ["First Periodic Report of the Republic of Côte d'Ivoire"]}, {"time": "11:30–13:00", "access": "closed", "title": "(TBC) Presentation of the NHRI Report", "items": ["On the Second Periodic Report of Côte d'Ivoire"]}, {"time": "13:00–14:00", "access": "closed", "title": "Lunch Break", "items": []}, {"time": "14:00–16:15", "access": "closed", "title": "Consideration of Complementary Report", "items": ["Initial Report of the Republic of Cabo Verde"]}, {"time": "16:30–18:00", "access": "closed", "title": "(TBC) Presentation of the NHRI Report", "items": ["On the Initial Report of the Republic of Cabo Verde"]}]}, {"id": "tue20", "weekday": "Tuesday", "date": "20 October", "blocks": [{"time": "09:00–10:00", "access": "closed", "title": "Presentation on Budget and Activities 2026–2028", "items": []}, {"time": "10:00–13:00", "access": "closed", "title": "Consideration of Pending Communications", "items": ["Communication No. 0029/Com/001/2026 submitted by the Institute for Human Rights and Development in Africa and others against the Republic of Zambia", "Communication No. 0028/Com/003/2025 submitted by MN, Women's Probono Initiative (WPI), and the Center for Reproductive Rights (CRR) vs. the Republic of Uganda", "Communication No. 0019/Com/001/2022 submitted by Institute for Human Rights and Development in Africa and Mr. Solomon Joojo Cobbinah (on behalf of schoolgirls living in villages along the River Offin in the Ashanti Region of Ghana) against the Republic of Ghana"]}, {"time": "13:00–14:00", "access": "closed", "title": "Lunch Break", "items": []}, {"time": "14:00–17:00", "access": "closed", "title": "Adoption of Decisions", "items": ["General Comment on Article 28 on Drug Abuse", "Agenda 2040 Implementation Study", "Decisions on Affiliate and Observer Status", "Decisions on Partners' Request", "Selection of DAC Theme 2027", "Consideration of State Party Reports without CSO Reports", "Adoption of the outcome document of the DGD", "AOB"]}, {"time": "17:00–17:30", "access": "open", "title": "Closing", "items": []}]}];
+
+  // Tabs
   const tabButtons = document.querySelectorAll('nav.tabs button');
   const panels = document.querySelectorAll('section.panel');
   tabButtons.forEach(btn => {
@@ -172,14 +218,18 @@
       document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
     });
   });
+
+  // Build day switcher + panels
   const switchEl = document.getElementById('day-switch');
   const panelsEl = document.getElementById('day-panels');
+
   function badgeLabel(access) {
     if (access === 'open') return 'Open Session';
     if (access === 'closed') return 'Closed Session';
     if (access === 'closed-parallel') return 'Closed Session (Parallel)';
     return access;
   }
+
   AGENDA.forEach((day, idx) => {
     const dayBtn = document.createElement('button');
     dayBtn.textContent = day.weekday + ' ' + day.date.split(' ')[0];
@@ -192,32 +242,40 @@
       document.getElementById('daypanel-' + day.id).classList.add('active');
     });
     switchEl.appendChild(dayBtn);
+
     const dayPanel = document.createElement('div');
     dayPanel.className = 'day-panel' + (idx === 0 ? ' active' : '');
     dayPanel.id = 'daypanel-' + day.id;
+
     const heading = document.createElement('h3');
     heading.style.marginTop = '0';
     heading.textContent = day.weekday + ', ' + day.date;
     dayPanel.appendChild(heading);
+
     day.blocks.forEach(block => {
       const card = document.createElement('div');
       card.className = 'block-card';
+
       const timeEl = document.createElement('div');
       timeEl.className = 'block-time';
       timeEl.textContent = block.time;
       card.appendChild(timeEl);
+
       const bodyEl = document.createElement('div');
       bodyEl.className = 'block-body';
+
       if (block.track) {
         const trackEl = document.createElement('div');
         trackEl.className = 'block-track';
         trackEl.textContent = block.track;
         bodyEl.appendChild(trackEl);
       }
+
       const titleEl = document.createElement('div');
       titleEl.className = 'block-title';
       titleEl.textContent = block.title;
       bodyEl.appendChild(titleEl);
+
       if (block.items && block.items.length) {
         const ul = document.createElement('ul');
         ul.className = 'block-items';
@@ -228,16 +286,32 @@
         });
         bodyEl.appendChild(ul);
       }
+
       const badge = document.createElement('span');
       badge.className = 'badge ' + block.access;
       badge.textContent = badgeLabel(block.access);
       bodyEl.appendChild(document.createElement('br'));
       bodyEl.appendChild(badge);
+
       card.appendChild(bodyEl);
       dayPanel.appendChild(card);
     });
+
     panelsEl.appendChild(dayPanel);
   });
+
+  // ---- auto-resize: tell an embedding iframe our real content height ----
+  function sendHeightToParent() {
+    const h = document.documentElement.scrollHeight;
+    window.parent.postMessage({ source: 'acerwc48-embed', height: h }, '*');
+  }
+  window.addEventListener('load', sendHeightToParent);
+  window.addEventListener('resize', sendHeightToParent);
+  document.querySelectorAll('nav.tabs button, .day-switch button').forEach(btn => {
+    btn.addEventListener('click', () => setTimeout(sendHeightToParent, 60));
+  });
+  setTimeout(sendHeightToParent, 300);
+  setTimeout(sendHeightToParent, 1000);
 </script>
 
 </body>
