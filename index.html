@@ -312,6 +312,10 @@
   });
   setTimeout(sendHeightToParent, 300);
   setTimeout(sendHeightToParent, 1000);
+  if (window.ResizeObserver) {
+    const ro = new ResizeObserver(() => sendHeightToParent());
+    ro.observe(document.body);
+  }
 </script>
 
 </body>
