@@ -90,6 +90,11 @@
   ul.link-list li { margin-bottom: 10px; }
   ul.link-list a { color: var(--maroon); font-weight: 600; text-decoration: none; }
   ul.link-list a:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    .block-card { flex-direction: column; gap: 6px; }
+    .block-time { flex-basis: auto; }
+  }
 </style>
 </head>
 <body>
