@@ -67,6 +67,22 @@
   .note { background: var(--tint-parallel); border: 1px solid var(--gold); border-radius: 10px; padding: 12px 16px; font-size: 0.87rem; color: var(--gold-dark); margin-top: 14px; }
   .speaker-name { font-weight: 700; }
   .placeholder { color: var(--muted); font-style: italic; }
+  .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 14px; }
+  .info-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; }
+  .info-card.full-width { grid-column: 1 / -1; }
+  .info-card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .info-icon { font-size: 1.15rem; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; background: var(--tint-parallel); border-radius: 10px; flex: 0 0 auto; }
+  .info-card h3 { margin: 0; font-size: 0.98rem; color: var(--maroon-dark); }
+  .info-card p { margin: 0 0 8px; font-size: 0.88rem; color: var(--ink); }
+  .info-card p:last-child { margin-bottom: 0; }
+  .info-card a { color: var(--maroon); }
+  .compact-list { margin: 6px 0 8px; padding-left: 18px; font-size: 0.85rem; color: var(--ink); }
+  .compact-list li { margin-bottom: 4px; }
+  .plug-row { display: flex; gap: 18px; margin-top: 8px; flex-wrap: wrap; }
+  .plug-card { text-align: center; }
+  .plug-card img { width: 92px; height: auto; border: 1px solid var(--border); border-radius: 8px; background: #fff; padding: 6px; display: block; }
+  .plug-card span { display: block; font-size: 0.72rem; color: var(--muted); margin-top: 4px; max-width: 104px; }
+  @media (max-width: 760px) { .info-grid { grid-template-columns: 1fr; } }
   footer.bottom { background: var(--maroon-dark); color: #f2dfe3; text-align: center; padding: 22px; font-size: 0.85rem; }
   footer.bottom img { height: 34px; margin-bottom: 10px; }
   ul.link-list { list-style: none; padding: 0; margin: 0; }
@@ -144,7 +160,8 @@
   <section class="panel" id="panel-practical">
     <h2 class="panel-title" id="txt-practical-title"></h2>
     <p class="panel-intro" id="txt-practical-intro"></p>
-    <div class="card" id="practical-body"></div>
+    <div class="info-grid" id="practical-body"></div>
+    <div class="note" id="txt-practical-note"></div>
   </section>
 
   <section class="panel" id="panel-online">
@@ -348,9 +365,16 @@
 
     document.getElementById('txt-practical-title').textContent = c.panelTitles.practical;
     document.getElementById('txt-practical-intro').textContent = m.practicalIntro;
-    document.getElementById('practical-body').innerHTML = (d.practicalInfo || []).map(p =>
-      '<p><strong>' + esc(p.label) + ':</strong> <span' + (p.value ? '' : ' class="placeholder"') + '>' + esc(p.value || c.toBeConfirmed) + '</span></p>'
-    ).join('');
+    document.getElementById('practical-body').innerHTML = (d.practicalSections || []).map(sec => {
+      const paras = (sec.paragraphs || []).map(p => '<p>' + p + '</p>').join('');
+      const bullets = (sec.bullets && sec.bullets.length) ? '<ul class="compact-list">' + sec.bullets.map(b => '<li>' + b + '</li>').join('') + '</ul>' : '';
+      const afterParas = (sec.afterParagraphs || []).map(p => '<p>' + p + '</p>').join('');
+      const images = (sec.images && sec.images.length) ? '<div class="plug-row">' + sec.images.map(img =>
+        '<div class="plug-card"><img src="' + img.data + '" alt="' + esc(img.caption || '') + '"><span>' + esc(img.caption || '') + '</span></div>'
+      ).join('') + '</div>' : '';
+      return '<div class="info-card' + (sec.fullWidth ? ' full-width' : '') + '"><div class="info-card-head"><span class="info-icon">' + esc(sec.icon || '') + '</span><h3>' + esc(sec.title || '') + '</h3></div>' + paras + bullets + afterParas + images + '</div>';
+    }).join('');
+    document.getElementById('txt-practical-note').textContent = m.practicalNote;
 
     document.getElementById('txt-online-title').textContent = c.panelTitles.online;
     document.getElementById('txt-online-intro').textContent = m.onlineIntro;
